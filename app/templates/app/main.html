@@ -1,7 +1,14 @@
-{%extend 'base.html'%}
+{%extends 'app/base.html'%}
 
 {%block content%}
 
-
-
+<h3>Write an instruction</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="user_input">
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+{%if response%}
+{{response|safe}}
+{%endif%}
 {%endblock%}
